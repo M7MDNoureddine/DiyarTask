@@ -20,5 +20,18 @@ namespace task1.Mappers
             };
 
         }
+
+        public static Employee toEmployeeFromUpdateDto(this UpdateEmployeeDto empDto)
+        {
+            return new Employee
+            {
+                EmployeeName = empDto.EmployeeName,
+                Email = empDto.Email,
+                DepartmentId = empDto.DepartmentId,
+                Salary = empDto.Salary,
+                MobileNo = empDto.MobileNo
+            };
+
+        }
     }
 }

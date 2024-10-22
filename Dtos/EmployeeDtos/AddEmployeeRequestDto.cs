@@ -13,5 +13,7 @@ namespace task1.Dtos.EmployeeDtos
 
     public string MobileNo { get; set; } = null!;
 
+    public DateOnly? JoiningDate { get; set; }
+
     }
 }

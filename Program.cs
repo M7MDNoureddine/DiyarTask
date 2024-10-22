@@ -12,6 +12,9 @@ builder.Services.AddDbContext<Task1Context>(
     options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
 ); 
 
+builder.Services.AddCors( policy=>
+        {policy.AddPolicy("AllowOrigin", option => option.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());});
+
 builder.Services.AddControllers(); // This registers your controllers
 
 var app = builder.Build();
@@ -23,13 +26,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+
+//app.UseHttpsRedirection();
 
 app.UseRouting(); // Enables routing middleware
+app.UseCors("AllowOrigin");
 app.UseAuthorization(); // Enables authorization middleware
 
 app.MapControllers(); // Maps controller routes to be accessible
-
 
 
 app.Run();

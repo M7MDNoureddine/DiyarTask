@@ -11,5 +11,7 @@ namespace task1.Dtos.EmployeeDtos
         public string Email { get; set; } = null!;
 
         public string MobileNo { get; set; } = null!;
+
+        public DateOnly? JoiningDate { get; set; }
     }
 }
